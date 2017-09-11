@@ -23,7 +23,7 @@ HueClass.prototype.getHub = function(callback) {
 	api.getConfig(function(err, config) {
 		if (err) throw err;
 		callback(config);
-	})
+	});
 };
 
 module.exports = HueClass;
