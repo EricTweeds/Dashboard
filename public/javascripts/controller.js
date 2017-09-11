@@ -1,5 +1,5 @@
 //controller.js
-var url = 'http://localhost:3000'
+var url = 'http://192.168.1.69:3000'
 
 $(document).ready(function() {
 	$('#studyMode').click(function() {
