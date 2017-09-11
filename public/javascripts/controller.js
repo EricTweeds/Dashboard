@@ -2,9 +2,24 @@
 var url = 'http://localhost:3000'
 
 $(document).ready(function() {
-	$('#getHueData').click(function() {
-		$.get(url + '/hue', function(bridge) {
-			console.log(bridge);
+	$('#studyMode').click(function() {
+		$.get(url + '/study', function(success) {
+			console.log(success);
+		});
+	});
+	$('#sirenMode').click(function() {
+		$.get(url + '/siren', function(success) {
+			console.log(success);
+		});
+	});
+	$('#test').click(function() {
+		$.get(url + '/test', function(success) {
+			console.log(success);
+		});
+	});
+	$('#hueOff').click(function() {
+		$.get(url + '/hueOff', function(success) {
+			console.log(success);
 		});
 	});
 });

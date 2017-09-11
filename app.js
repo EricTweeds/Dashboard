@@ -30,8 +30,26 @@ app.use('/', index);
 app.use('/users', users);
 
 
-app.get('/hue', function(req, res) {
-  hue.getHub(function(data) {
+app.get('/study', function(req, res) {
+  hue.studyMode(function(data) {
+    res.send(JSON.stringify(data));
+  });
+});
+
+app.get('/siren', function(req, res) {
+  hue.siren(function(data) {
+    res.send(JSON.stringify(data));
+  });
+});
+
+app.get('/test', function(req, res) {
+  hue.test(function(data) {
+    res.send(JSON.stringify(data));
+  });
+});
+
+app.get('/hueOff', function(req, res) {
+  hue.off(function(data) {
     res.send(JSON.stringify(data));
   });
 });
