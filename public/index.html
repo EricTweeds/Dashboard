@@ -7,14 +7,14 @@
 </head>
 
 <body>
-	<div class="row">
+	<div class="row well">
 		<div class="jumbotron">
 			<center><h1>Dashboard</h1></center>
 		</div>
 	</div>
 	
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-6 well">
 			<center><h1 style="font-size: 50px; margin-bottom: 20px;">Hue</h1></center>
 			<div class="row">
 				<div class="col-sm-6">
@@ -34,13 +34,25 @@
 			</div>
 		</div>
 		<div class="col-lg-6">
-			<div class="jumbotron">
+			<div class="well">
 				<center><h1>Schedule</h1></center>
 			</div>
 		</div>
 		<div class="col-lg-6">
-			<div class="jumbotron">
-				<center><h1>Status</h1></center>
+			<div class="well">
+				<center>
+					<h1>Connected Devices</h1>
+					<p>List of devices current connected to my router</p>
+				</center>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
+						<tbody id="connectedDevices">
+							<!--Devices on the network will be added here-->
+						</tbody>
+					</table>
+				</div>
+				<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
 			</div>
 		</div>
 	</div>

@@ -29,30 +29,40 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
-
-app.get('/study', function(req, res) {
+//Philips Hue Function calls
+app.get('/hue/study', function(req, res) {
   hue.studyMode(function(data) {
     res.send(JSON.stringify(data));
   });
 });
 
-app.get('/siren', function(req, res) {
+app.get('/hue/siren', function(req, res) {
   hue.siren(function(data) {
     res.send(JSON.stringify(data));
   });
 });
 
-app.get('/test', function(req, res) {
+app.get('/hue/test', function(req, res) {
   hue.test(function(data) {
     res.send(JSON.stringify(data));
   });
 });
 
-app.get('/hueOff', function(req, res) {
+app.get('/hue/hueOff', function(req, res) {
   hue.off(function(data) {
     res.send(JSON.stringify(data));
   });
 });
+
+//Netgear Router Device List Call
+var pythonShell = require('python-shell');
+app.get('/router/deviceList', function(req, res) {
+  pythonShell.run('./Python_Scripts/netgearScript.py', function(err, results) {
+    if (err) throw err;
+    res.send(results);
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
