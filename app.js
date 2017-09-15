@@ -14,6 +14,12 @@ var app = express();
 var hueJS = require('./hue.js');
 var hue = new hueJS();
 
+var googleApis = require('./googleApis.js');
+var GoogleApi = new googleApis();
+
+var fs = require('fs');
+var readline = require('readline');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -63,6 +69,13 @@ app.get('/router/deviceList', function(req, res) {
   });
 });
 
+//google calendar functions
+
+app.get('/calendar', function(req, res) {
+  GoogleApi.initialize(function(status) {
+    res.send(status);
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
