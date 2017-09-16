@@ -72,8 +72,8 @@ app.get('/router/deviceList', function(req, res) {
 //google calendar functions
 
 app.get('/calendar', function(req, res) {
-  GoogleApi.initialize(function(status) {
-    res.send(status);
+  GoogleApi.initialize(function(events) {
+    res.send(events);
   });
 });
 

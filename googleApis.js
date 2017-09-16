@@ -19,9 +19,14 @@ googleApis.prototype.initialize = function(callback) {
 	      console.log('Error loading client secret file: ' + err);
 	      return;
 	    }
-	    callback(authorize(JSON.parse(content), listEvents));
+	    authorize(JSON.parse(content), function(auth) {
+	    	listEvents(auth, function(events) {
+	    		callback(events);
+	    	});
+	    });
   	});
 };
+
 module.exports = googleApis;
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -102,7 +107,7 @@ function storeToken(token) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth) {
+function listEvents(auth, callback) {
   var calendar = google.calendar('v3');
   calendar.events.list({
     auth: auth,
@@ -117,15 +122,6 @@ function listEvents(auth) {
       return;
     }
     var events = response.items;
-    if (events.length == 0) {
-      console.log('No upcoming events found.');
-    } else {
-      console.log('Upcoming 10 events:');
-      for (var i = 0; i < events.length; i++) {
-        var event = events[i];
-        var start = event.start.dateTime || event.start.date;
-        console.log('%s - %s', start, event.summary);
-      }
-    }
+    callback(events);
   });
 }
