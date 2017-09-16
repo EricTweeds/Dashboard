@@ -79,13 +79,24 @@ HueClass.prototype.disco = function(callback) {
 	});
 };
 
-HueClass.prototype.test = function(callback) {
-	var state1 = lightState.create().on().rgb(255, 0, 0).colourLoop();
-	var state2 = lightState.create().on().rgb(0, 0, 255).colourLoop();
-	var state3 = lightState.create().on().rgb(0, 255, 0).colourLoop();
+HueClass.prototype.reading = function(callback) {
+	var state1 = lightState.create().on().white(500, 100);
+	var state2 = lightState.create().on().white(500, 10);
 	api.lights(function(err, lights) {
 		if (err) throw err;
-		setLights(state3, state1, state2, function(success) {
+		setLights(state1, state2, state2, function(success) {
+			callback(success);
+		});
+	});
+};
+
+HueClass.prototype.test = function(callback) {
+	var state1 = lightState.create().on().white(500, 100);
+	var state2 = lightState.create().on().white(500, 10);
+	//var state3 = lightState.create().on().
+	api.lights(function(err, lights) {
+		if (err) throw err;
+		setLights(state1, state2, state2, function(success) {
 			callback(success);
 		});
 	});
@@ -96,6 +107,10 @@ module.exports = HueClass;
 function setLights(lamp, over1, over2, callback) {
 	//sets each of the lamps to the submitted state, resets them first
 	//to remove properties from previous state
+	if (!isValidTime()) {
+		callback("Hue control disabled from 12am-8am");
+		return;
+	}
 	var reset = lightState.create().reset().off();
 	api.setLightState(LAMP, reset, function(err, lights2) {
 		if (err) throw err;
@@ -119,4 +134,13 @@ function setLights(lamp, over1, over2, callback) {
 		if (err) throw err;
 		callback(lights2);
 	});
+}
+
+function isValidTime() {
+	var date = new Date();
+	var hour = date.getHours();
+	if (hour < 8) {
+		return false;
+	}
+	return true;
 }

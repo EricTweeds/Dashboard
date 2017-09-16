@@ -19,3 +19,11 @@ a {
 .refreshBtn {
 	align-self: right;
 }
+
+.hidden {
+	display: none;
+}
+
+.warning {
+	color:red;
+}

@@ -11,60 +11,78 @@
 		<center><h1>Dashboard</h1></center>
 	</div>
 	
-	<div class="row">
-		<div class="col-lg-6 well">
-			<center><h1 style="font-size: 50px; margin-bottom: 20px;">Hue</h1></center>
-			<div class="row">
-				<div class="col-sm-6">
-					<center><button class="hueButton" id="studyMode">Study</button></center>
-				</div>
-				<div class="col-sm-6">
-					<center><button class="hueButton" id="sirenMode">Siren</button></center>
-				</div>
+	<div class="col-lg-6 well">
+		<center>
+			<h1 style="font-size: 50px; margin-bottom: 20px;">Hue</h1>
+			<p id="hueWarning" class="warning hidden">Hue control disabled from 12am-8am</p>
+		</center>
+		<div class="row">
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="studyMode">Study</button></center>
 			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<center><button class="hueButton" id="test">Test</button></center>
-				</div>
-				<div class="col-sm-6">
-					<center><button class="hueButton" id="hueOff">Off</button></center>
-				</div>
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="sirenMode">Siren</button></center>
 			</div>
 		</div>
-		<div class="col-lg-6">
-			<div class="well">
-				<center><h1>Schedule</h1></center>
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
-						<tbody id="eventList">
-							
-						</tbody>
-					</table>
-				</div>
-				<center><button id="fullCalendar" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >More Detail</button></center>
+		<div class="row">
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="disco">Disco</button></center>
+			</div>
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="reading">Reading</button></center>
 			</div>
 		</div>
-		<div class="col-lg-6">
-			<div class="well">
-				<center>
-					<h1>Connected Devices</h1>
-					<p>List of devices currently connected to my router</p>
-				</center>
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
-						<tbody id="connectedDevices">
-							<!--Devices on the network will be added here-->
-						</tbody>
-					</table>
-				</div>
-				<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
+		<div class="row">
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="test">Test</button></center>
 			</div>
+			<div class="col-sm-6">
+				<center><button class="hueButton" id="hueOff">Off</button></center>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="well">
+			<center><h1>Schedule</h1></center>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
+					<tbody id="eventList">
+						
+					</tbody>
+				</table>
+			</div>
+			<center><button id="fullCalendar" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >More Detail</button></center>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="well">
+			<center>
+				<h1>Connected Devices</h1>
+				<p>List of devices currently connected to my router</p>
+			</center>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
+					<tbody id="connectedDevices">
+						<!--Devices on the network will be added here-->
+					</tbody>
+				</table>
+			</div>
+			<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="well">
+			<center>
+				<h1>Weather</h1>
+				<h3>Waterloo: </h3><h3 id="temperature"></h3> 
+			</center>
 		</div>
 	</div>
 
 </body>
+		
 
 <!--Calendar Modal -->
 <div id="myModal" class="modal fade" role="dialog">

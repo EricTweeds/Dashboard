@@ -17,8 +17,17 @@ var hue = new hueJS();
 var googleApis = require('./googleApis.js');
 var GoogleApi = new googleApis();
 
-var fs = require('fs');
-var readline = require('readline');
+var Forecast = require('forecast');
+var forecast = new Forecast({
+  service:'darksky',
+  key:"961d00284ae951c12d1d465857950732",
+  units:'celcius',
+  cache:true,
+  ttl: {
+    minutes: 59,
+    seconds: 45
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -48,6 +57,19 @@ app.get('/hue/siren', function(req, res) {
   });
 });
 
+app.get('/hue/disco', function(req, res) {
+  hue.disco(function(data) {
+    res.send(JSON.stringify(data));
+  });
+});
+
+app.get('/hue/reading', function(req, res) {
+  hue.reading(function(data) {
+    res.send(JSON.stringify(data));
+  });
+});
+
+
 app.get('/hue/test', function(req, res) {
   hue.test(function(data) {
     res.send(JSON.stringify(data));
@@ -76,6 +98,14 @@ app.get('/calendar', function(req, res) {
     res.send(events);
   });
 });
+
+app.get('/weather', function(req, res) {
+  forecast.get([43.477, -80.537], function(err, weather) {
+    if (err) throw err;
+    res.send(weather);
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

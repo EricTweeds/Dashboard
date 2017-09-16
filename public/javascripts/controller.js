@@ -2,6 +2,7 @@
 var url = 'http://45.62.218.227:8080'
 
 $(document).ready(function() {
+	$('#hueWarning').addClass('hidden');
 	$.get(url + '/router/deviceList', function(response) {
 		response.forEach(function(device) {
 			device = JSON.parse(device);
@@ -13,24 +14,51 @@ $(document).ready(function() {
 			addEvent(event);
 		});
 	});
+	$.get(url + '/weather', function(weather) {
+		console.log(weather);
+		var cTemp = (weather.currently.temperature).toString();
+		$("#temperature").html(cTemp + "&deg;C");
+	});
 	$('#studyMode').click(function() {
 		$.get(url + '/hue/study', function(success) {
-			console.log(success);
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
 		});
 	});
 	$('#sirenMode').click(function() {
 		$.get(url + '/hue/siren', function(success) {
-			console.log(success);
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
+		});
+	});
+	$('#disco').click(function() {
+		$.get(url + '/hue/disco', function(success) {
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
+		});
+	});
+	$('#reading').click(function() {
+		$.get(url + '/hue/reading', function(success) {
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
 		});
 	});
 	$('#test').click(function() {
 		$.get(url + '/hue/test', function(success) {
-			console.log(success);
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
 		});
 	});
 	$('#hueOff').click(function() {
 		$.get(url + '/hue/hueOff', function(success) {
-			console.log(success);
+			if (success != "true") {
+				$('#hueWarning').removeClass('hidden');
+			}
 		});
 	});
 	$('#deviceList').click(function() {
