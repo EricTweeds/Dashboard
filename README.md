@@ -19,14 +19,14 @@ Web app using NodeJS that I use control different things around my apartment
 * displays the current temperature in Waterloo (where I go to live)
 * Coming soon: Room-temperature through arduino temp sensor
 
-##Connected Devices
+## Connected Devices
 * Python module: [pynetgear](https://github.com/balloob/pynetgear)
 * Gets a list of devices currently connected to the router
 * Coming soon: device manufacterer and who's home
 
-##Schedule (WIP)
+## Schedule (WIP)
 * uses googles calendar API
 * Should display next 10 events but is not currently working anymore
 * More details will display full calendar
 
-##MORE TO COME!!!
+## MORE TO COME!!!
