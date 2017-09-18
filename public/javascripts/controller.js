@@ -2,65 +2,34 @@
 var url = 'http://45.62.218.227:8080'
 
 $(document).ready(function() {
+	//start with the warning hidden
 	$('#hueWarning').addClass('hidden');
+
+	//load partials
+	$('#tvRemote').load('./partials/remote.html');
+	$('#tvRemote2').load('./partials/remote.html');
+	$('#hueController').load('./partials/hue.html');
+
+	//load devices from router
 	$.get(url + '/router/deviceList', function(response) {
 		response.forEach(function(device) {
 			device = JSON.parse(device);
 			addDeviceRow(device);
 		});
 	});
+	//load google calendar events, WIP, doesnt work on server
 	$.get(url + '/calendar', function(response) {
 		response.forEach(function(event) {
 			addEvent(event);
 		});
 	});
+	//load weather data
 	$.get(url + '/weather', function(weather) {
 		console.log(weather);
 		var cTemp = (weather.currently.temperature).toString();
 		$("#temperature").html(cTemp + "&deg;C");
 	});
-	$('#studyMode').click(function() {
-		$.get(url + '/hue/study', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
-	$('#sirenMode').click(function() {
-		$.get(url + '/hue/siren', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
-	$('#disco').click(function() {
-		$.get(url + '/hue/disco', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
-	$('#reading').click(function() {
-		$.get(url + '/hue/reading', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
-	$('#test').click(function() {
-		$.get(url + '/hue/test', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
-	$('#hueOff').click(function() {
-		$.get(url + '/hue/hueOff', function(success) {
-			if (success != "true") {
-				$('#hueWarning').removeClass('hidden');
-			}
-		});
-	});
+	//refresh router list
 	$('#deviceList').click(function() {
 		$.get(url + '/router/deviceList', function(response) {
 			$("#connectedDevices").empty();

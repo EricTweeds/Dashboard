@@ -91,12 +91,12 @@ HueClass.prototype.reading = function(callback) {
 };
 
 HueClass.prototype.test = function(callback) {
-	var state1 = lightState.create().on().white(500, 100);
+	var state1 = lightState.create().on().alert("lselect");
 	var state2 = lightState.create().on().white(500, 10);
-	//var state3 = lightState.create().on().
+	var state3= lightState.create().on().white(500, 10);
 	api.lights(function(err, lights) {
 		if (err) throw err;
-		setLights(state1, state2, state2, function(success) {
+		setLights(state1, state1, state1, function(success) {
 			callback(success);
 		});
 	});

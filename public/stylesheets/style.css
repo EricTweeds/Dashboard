@@ -9,13 +9,15 @@ a {
 }
 
 .hueButton {
-	background-color: #008CBA;
+	background-color: #d32f2f;
 	height: 150px;
 	width: 100%;
-	border-radius: 30px;
+	border-radius: 50px;
+	border-color: #1b1b1b;
 	font-size: 32px;
+	color: white;
+	margin:5px;
 }
-
 .refreshBtn {
 	align-self: right;
 }
@@ -25,5 +27,5 @@ a {
 }
 
 .warning {
-	color:red;
+	color: #9a0007;
 }
