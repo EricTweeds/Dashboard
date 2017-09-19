@@ -16,6 +16,7 @@
     "material-design-icons": "^3.0.1",
     "morgan": "~1.8.1",
     "node-hue-api": "^2.4.2",
+    "oui": "^7.0.6",
     "pug": "~2.0.0-beta11",
     "python-shell": "^0.4.0",
     "serve-favicon": "~2.4.2"

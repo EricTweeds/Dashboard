@@ -11,12 +11,22 @@ $(document).ready(function() {
 	$('#hueController').load('./partials/hue.html');
 
 	//load devices from router
-	$.get(url + '/router/deviceList', function(response) {
-		response.forEach(function(device) {
-			device = JSON.parse(device);
-			addDeviceRow(device);
+	$("#devicesPopup").click(function() {
+		$.get(url + '/deviceList', function(response) {
+			$("#connectedDevices").empty();
+			response.forEach(function(device) {
+				device = JSON.parse(device);
+				addDeviceRow(device);
+			});
 		});
 	});
+
+	$.get(url + '/deviceStatus', function(response) {
+		response["devices"].forEach(function(device) {
+			addDeviceStatus(device);
+		});
+	});
+
 	//load google calendar events, WIP, doesnt work on server
 	$.get(url + '/calendar', function(response) {
 		response.forEach(function(event) {
@@ -31,7 +41,7 @@ $(document).ready(function() {
 	});
 	//refresh router list
 	$('#deviceList').click(function() {
-		$.get(url + '/router/deviceList', function(response) {
+		$.get(url + '/deviceList', function(response) {
 			$("#connectedDevices").empty();
 			response.forEach(function(device) {
 				device = JSON.parse(device);
@@ -83,4 +93,15 @@ function get12hTime(date) {
 function getReadableMonth(month) {
 	var months = ["Jan ", "Feb ", "Mar ", "Apr ", "May ", "June ", "July ", "Aug ", "Sep ", "Oct ", "Nov ", "Dec "];
 	return months[month];
+}
+function addDeviceStatus(device) {
+	var html = $("<tr></tr>");
+	html.append("<td>" + device.name + "</td>");
+	html.append("<td>" + device.ip + "</td>");
+	if (device.status === "online") {
+		html.append("<td align='center'><button class='online'></button></td>");
+	} else {
+		html.append("<td align='center'><button class='offline'></button></td>");
+	}
+	$("#deviceStatus").append(html);
 }

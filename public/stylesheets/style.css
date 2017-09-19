@@ -18,6 +18,36 @@ a {
 	color: white;
 	margin:5px;
 }
+.modal-btn {
+	background-color: #d32f2f;
+	height: 50px;
+	width: 100px;
+	border-radius: 25px;
+	border-color: #1b1b1b;
+	color: white;
+	margin:5px;
+}
+.hueButton:active {
+	background-color: #ff6659;
+	height: 150px;
+	width: 100%;
+	border-radius: 50px;
+	border-color: #1b1b1b;
+	border-width: 5px;
+	font-size: 32px;
+	color: white;
+	margin:5px;
+}
+.modal-btn:active {
+	background-color: #ff6659;
+	height: 50px;
+	width: 100px;
+	border-radius: 25px;
+	border-color: #1b1b1b;
+	border-width: 5px;
+	color: white;
+	margin:5px;
+}
 .refreshBtn {
 	align-self: right;
 }
@@ -28,4 +58,20 @@ a {
 
 .warning {
 	color: #9a0007;
+}
+.online {
+	height: 24px;
+	width: 24px;
+	border-radius: 12px;
+	background-color: green;
+	border-color: #424242;
+	background-image: linear-gradient(green,lightgreen);
+}
+.offline {
+	height: 24px;
+	width: 24px;
+	border-radius: 12px;
+	background-color: #b31217;
+	border-color: #424242;
+	background-image: linear-gradient(#b31217,#e52d27);
 }

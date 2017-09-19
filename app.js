@@ -14,6 +14,17 @@ var app = express();
 var hueJS = require('./hue.js');
 var hue = new hueJS();
 
+var DeviceStatus = require('./deviceStatus.js');
+var deviceStatus = new DeviceStatus();
+
+(function updateDevices() {
+  var deviceStatus = new DeviceStatus();
+  console.log("refresh");
+  setTimeout(function() {
+      updateDevices();
+  }, 1000*60*5);
+})();
+
 var googleApis = require('./googleApis.js');
 var GoogleApi = new googleApis();
 
@@ -82,15 +93,6 @@ app.get('/hue/hueOff', function(req, res) {
   });
 });
 
-//Netgear Router Device List Call
-var pythonShell = require('python-shell');
-app.get('/router/deviceList', function(req, res) {
-  pythonShell.run('./Python_Scripts/netgearScript.py', function(err, results) {
-    if (err) throw err;
-    res.send(results);
-  });
-});
-
 //google calendar functions
 
 app.get('/calendar', function(req, res) {
@@ -106,6 +108,12 @@ app.get('/weather', function(req, res) {
   });
 });
 
+app.get('/deviceList', function(req, res) {
+  res.send(deviceStatus.deviceList());
+});
+app.get('/deviceStatus', function(req, res) {
+  res.send(deviceStatus.keyDevicesStatus());
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

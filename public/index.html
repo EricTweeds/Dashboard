@@ -39,32 +39,34 @@
 		</div>
 	</div>
 	<div class="well">
-		<center>
-			<h1>Connected Devices</h1>
-			<p>List of devices currently connected to my router</p>
-		<div class="table-responsive">
-			<table class="table table-striped">
-				<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
-				<tbody id="connectedDevices">
-					<!--Devices on the network will be added here-->
-				</tbody>
-			</table>
+		<div class="row">
+			<div class="col-lg-6">
+		    	<center>
+				<h1>Device Status</h1>
+				<div class="table-responsive">
+					<table class="table">
+						<tr><th>Name</th><th>IP</th><th><center>Online</center></th></tr>
+						<tbody id="deviceStatus">
+							<!--Devices on the network will be added here-->
+						</tbody>
+					</table>
+				</div>
+				<button id="devicesPopup" type="button" class="modal-btn" data-toggle="modal" data-target="#moreDevices">More Devices</button></center>
+			</div>
+			<div class="col-lg-6">
+				<center><h1>Schedule</h1>
+				<p class="warning">If nothing is loading its cause googles API is having issues</p>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
+						<tbody id="eventList">
+							
+						</tbody>
+					</table>
+				</div>
+				<button id="fullCalendar" type="button" class="modal-btn" data-toggle="modal" data-target="#myModal">More Detail</button></center>
+			</div>
 		</div>
-		<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
-		</center>
-	</div>
-	<div class="well">
-		<center><h1>Schedule</h1>
-		<p class="warning">If nothing is loading its cause googles API is having issues</p>
-		<div class="table-responsive" style="width: 50%;">
-			<table class="table table-striped">
-				<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
-				<tbody id="eventList">
-					
-				</tbody>
-			</table>
-		</div>
-		<button id="fullCalendar" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">More Detail</button></center>
 	</div>
 </body>
 		
@@ -90,3 +92,35 @@
   </div>
 </div>
 
+<!--Connected Devices Modal-->
+<div id="moreDevices" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Schedule</h4>
+      </div>
+      <div class="modal-body">
+      	<center>
+			<h1>Connected Devices</h1>
+			<p>List of devices currently connected to my router</p>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
+					<tbody id="connectedDevices">
+						<!--Devices on the network will be added here-->
+					</tbody>
+				</table>
+			</div>
+			<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
+		</center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
