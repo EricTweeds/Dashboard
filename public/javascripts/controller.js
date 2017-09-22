@@ -39,6 +39,10 @@ $(document).ready(function() {
 		var cTemp = (weather.currently.temperature).toString();
 		$("#temperature").html(cTemp + "&deg;C");
 	});
+	//load local temp data
+	$.get(url + '/roomTemp', function(temperature) {
+		$("#roomTemperature").html(temperature + "&deg;C");
+	});
 	//refresh router list
 	$('#deviceList').click(function() {
 		$.get(url + '/deviceList', function(response) {
@@ -99,9 +103,9 @@ function addDeviceStatus(device) {
 	html.append("<td>" + device.name + "</td>");
 	html.append("<td>" + device.ip + "</td>");
 	if (device.status === "online") {
-		html.append("<td align='center'><button class='online'></button></td>");
+		html.append("<td align='center'><div class='online'></div></td>");
 	} else {
-		html.append("<td align='center'><button class='offline'></button></td>");
+		html.append("<td align='center'><div class='offline'></div></td>");
 	}
 	$("#deviceStatus").append(html);
 }

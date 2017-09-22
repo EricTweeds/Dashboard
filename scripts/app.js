@@ -123,6 +123,11 @@ app.post('/tvCommand', function(req, res) {
   res.send("complete");
 });
 
+app.get('/roomTemp', function(req, res) {
+  var temp = serialport.getTemp();
+  res.send(temp);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
