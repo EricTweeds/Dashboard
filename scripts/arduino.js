@@ -1,6 +1,10 @@
 'use strict'
 var SerialPort = require("serialport");
-var serialport = new SerialPort("/dev/ttyACM0");
+var options = {
+	"baudRate":115200,
+	"encoding":'utf8'
+}
+var serialport = new SerialPort("/dev/ttyACM0", options);
 var commandData = require("./IR_Commands.json");
 
 var SerialCommunication = function() {
@@ -17,9 +21,11 @@ SerialCommunication.prototype.write = function(buttonVal) {
 };
 
 SerialCommunication.prototype.getTemp = function() {
-	serialport.write("3");
-	var temp = serialport.read(4);
-	console.log(temp);
+	serialport.write("3\n");
+	var temp = serialport.read(8);
+	console.log(temp.toString('utf8'));
+	temp = temp.toString('utf8');
+	temp.replace("3\n", "");
 	return temp;
 };
 
