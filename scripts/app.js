@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('../routes/index');
+var users = require('../routes/users');
 
 var app = express();
 
@@ -16,6 +16,9 @@ var hue = new hueJS();
 
 var DeviceStatus = require('./deviceStatus.js');
 var deviceStatus = new DeviceStatus();
+
+var SerialPort = require('./arduino.js');
+var serialport = new SerialPort();
 
 (function updateDevices() {
   var deviceStatus = new DeviceStatus();
@@ -41,7 +44,7 @@ var forecast = new Forecast({
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
@@ -50,7 +53,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', index);
 app.use('/users', users);
@@ -113,6 +116,11 @@ app.get('/deviceList', function(req, res) {
 });
 app.get('/deviceStatus', function(req, res) {
   res.send(deviceStatus.keyDevicesStatus());
+});
+
+app.post('/tvCommand', function(req, res) {
+  serialport.write(req.body.command);
+  res.send("complete");
 });
 
 // catch 404 and forward to error handler

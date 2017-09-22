@@ -1,7 +1,7 @@
 'use strict'
 var hue = require("node-hue-api");
 var hueApi = hue.HueApi;
-var host = "192.168.1.3";
+var host = "192.168.1.70";
 var username = "CAygiQnLgbxCmqy4wnQrbuimjua2Ds4c1siB5DzN";
 var api;
 var response;
@@ -139,7 +139,7 @@ function setLights(lamp, over1, over2, callback) {
 function isValidTime() {
 	var date = new Date();
 	var hour = date.getHours();
-	if (hour < 8) {
+	if (hour < 0) {
 		return false;
 	}
 	return true;

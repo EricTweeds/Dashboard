@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$('.remote-round').click(function() {
-		console.log($(this).attr("value"));
+		var command = $(this).attr("value");
+		$.post('/tvCommand', {"command":command});
 	});
 	$('.remote-square').click(function() {
 		console.log($(this).attr("value"));
