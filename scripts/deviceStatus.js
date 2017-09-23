@@ -28,20 +28,19 @@ DeviceStatus.prototype.keyDevicesStatus = function() {
 		"9C:4F:DA:23:CA:FE":"Jake's Phone",
 		"8C:F5:A3:16:90:26":"Coltons Phone",
 		"A0:D7:95:34:B8:76":"Cam's Phone",
-		"50:1A:C5:55:A0:B4":"Xbox",
+		"50:1A:C5:55:A0:B2":"Xbox",
 		"54:60:09:29:F6:F0":"ChromeCast",
 		"A8:6B:AD:00:9E:06":"Printer",
-		"DC:53:60:C8:DF:93":"Eric's Computer"
-		
+		"DC:53:60:C8:DF:93":"Eric's Computer"	
 	}
 	var deviceStatus = {"devices":[]};
-	var arpList = arpDeviceList;
+	var deviceList = routerDeviceList;
 	var deviceMacs = Object.keys(macToName);
 	deviceMacs.forEach(function(mac) {
 		var name = macToName[mac];
 		var ip;
 		var online = false;
-		arpList.forEach(function(device) {
+		deviceList.forEach(function(device) {
 			device = JSON.parse(device);
 			if (device.mac === mac) {
 				ip = device.ip;
