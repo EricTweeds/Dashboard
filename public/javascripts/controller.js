@@ -6,7 +6,6 @@ $(document).ready(function() {
 	$('#hueWarning').addClass('hidden');
 
 	//load partials
-	$('#tvRemote').load('./partials/remote.html');
 	$('#boxRemote').load('./partials/box_remote.html');
 	$('#hueController').load('./partials/hue.html');
 

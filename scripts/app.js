@@ -38,7 +38,7 @@ var eventList = [];
   var date = new Date();
   var hour = date.getHours();
 
-  if (hour == 0) {
+  if (hour == 0 || eventList.length == 0) {
     //updates the event list at beginning of day
     //google calendar functions
       GoogleApi.initialize(function(events) {
