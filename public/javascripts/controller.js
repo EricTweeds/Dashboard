@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	//load partials
 	$('#tvRemote').load('./partials/remote.html');
-	$('#tvRemote2').load('./partials/remote.html');
+	$('#boxRemote').load('./partials/box_remote.html');
 	$('#hueController').load('./partials/hue.html');
 
 	//load devices from router

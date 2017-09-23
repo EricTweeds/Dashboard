@@ -1,69 +1,166 @@
 {"commands":
 	{
 		"power":{
-			"hex":"61A0F00F",
 			"int":"1637937167"
 		},
 		"input":{
-			"hex":"61A0B847",
 			"int":"1637922887"
 		},
 		"one":{
-			"hex":"61A000FF",
 			"int":"1637875967"
 		},
 		"two":{
-			"hex":"61A0807F",
 			"int":"1637908607"
 		},
 		"three":{
-			"hex":"61A040BF",
 			"int":"1637892287"
 		},
 		"four":{
-			"hex":"61A0C03F",
 			"int":"1637924927"
 		},
 		"five":{
-			"hex":"61A020DF",
 			"int":"1637884127"
 		},
 		"six":{
-			"hex":"61A0A05F",
 			"int":"1637916767"
 		},
 		"seven":{
-			"hex":"61A0609F",
 			"int":"1637900447"
 		},
 		"eight":{
-			"hex":"61A0E01F",
 			"int":"1637933087"
 		},
 		"nine":{
-			"hex":"61A010EF",
 			"int":"1637880047"
 		},
 		"zero":{
-			"hex":"61A0906F",
 			"int":"1637912687"
 		},
 		"recall":{
-			"hex":"61A008F7",
 			"int":"1637878007"
 		},
 		"volup":{
-			"hex":"61A030CF",
 			"int":"1637888207"
 		},
 		"voldown":{
-			"hex":"61A0B04F",
 			"int":"1637920847"
 		},
 		"mute":{
-			"hex":"61A0708F",
 			"int":"1637904527"
+		},
+		"chup":{
+			"int":"1637896367"
+		},
+		"chdown":{
+			"int":"1637929007"
+		},
+		"menu":{
+			"int":"1637886167"
+		},
+		"info":{
+			"int":"1637935127"
+		},
+		"guide":{
+			"int":"1637917277"
+		},
+		"up":{
+			"int":"1637892797"
+		},
+		"left":{
+			"int":"1637902487"
+		},
+		"down":{
+			"int":"1637925437"
+		},
+		"right":{
+			"int":"1637918807"
+		},
+		"enter":{
+			"int":"1637882087"
+		},
+		"exit":{
+			"int":"1637931047"
+		},
+		"box_power":{
+			"int":"2956"
+		},
+		"box_keyboard":{
+			"int":"2968"
+		},
+		"box_one":{
+			"int":"2945"
+		},
+		"box_two":{
+			"int":"2946"
+		},
+		"box_three":{
+			"int":"2947"
+		},
+		"box_four":{
+			"int":"2948"
+		},
+		"box_five":{
+			"int":"2949"
+		},
+		"box_six":{
+			"int":"2950"
+		},
+		"box_seven":{
+			"int":"2951"
+		},
+		"box_eight":{
+			"int":"2952"
+		},
+		"box_nine":{
+			"int":"2953"
+		},
+		"box_zero":{
+			"int":"2944"
+		},
+		"box_recall":{
+			"int":"2959"
+		},
+		"box_volup":{
+			"int":"2962"
+		},
+		"box_voldown":{
+			"int":"2963"
+		},
+		"box_mute":{
+			"int":"2992"
+		},
+		"box_chup":{
+			"int":"3004"
+		},
+		"box_chdown":{
+			"int":"2961"
+		},
+		"box_menu":{
+			"int":"2954"
+		},
+		"box_info":{
+			"int":"2973"
+		},
+		"box_guide":{
+			"int":"2957"
+		},
+		"box_up":{
+			"int":"3005"
+		},
+		"box_left":{
+			"int":"3007"
+		},
+		"box_down":{
+			"int":"3006"
+		},
+		"box_right":{
+			"int":"2987"
+		},
+		"box_enter":{
+			"int":"2988"
+		},
+		"box_exit":{
+			"int":"2959"
 		}
-
 	}
 }
