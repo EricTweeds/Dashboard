@@ -21,6 +21,7 @@ var SerialPort = require('./arduino.js');
 var serialport = new SerialPort();
 
 (function updateDevices() {
+  //only updates every 5 minutes
   var deviceStatus = new DeviceStatus();
   console.log("refresh");
   setTimeout(function() {
@@ -30,6 +31,32 @@ var serialport = new SerialPort();
 
 var googleApis = require('./googleApis.js');
 var GoogleApi = new googleApis();
+var eventList = [];
+
+(function updateEvents() {
+  //get current hour
+  var date = new Date();
+  var hour = date.getHours();
+
+  if (hour == 0) {
+    //updates the event list at beginning of day
+    //google calendar functions
+      GoogleApi.initialize(function(events) {
+        console.log("calendar update");
+        eventList = events;
+      });
+  }
+  setTimeout(function() {
+      updateEvents();
+  }, 1000*60*60); 
+})();
+
+
+//google calendar functions
+
+app.get('/calendar', function(req, res) {
+  res.send(eventList);
+});
 
 var Forecast = require('forecast');
 var forecast = new Forecast({
@@ -93,14 +120,6 @@ app.get('/hue/test', function(req, res) {
 app.get('/hue/hueOff', function(req, res) {
   hue.off(function(data) {
     res.send(JSON.stringify(data));
-  });
-});
-
-//google calendar functions
-
-app.get('/calendar', function(req, res) {
-  GoogleApi.initialize(function(events) {
-    res.send(events);
   });
 });
 

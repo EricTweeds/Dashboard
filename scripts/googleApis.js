@@ -14,7 +14,7 @@ var googleApis = function() {
 };
 
 googleApis.prototype.initialize = function(callback) {
-	fs.readFile('./client_secret.json', function processClientSecrets(err, content) {
+	fs.readFile('./scripts/client_secret.json', function processClientSecrets(err, content) {
 	    if (err) {
 	      console.log('Error loading client secret file: ' + err);
 	      return;
