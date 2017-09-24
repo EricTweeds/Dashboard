@@ -31,6 +31,35 @@
 	</div>
 	<div class="well" id="hueController">
 	</div>
+	<div class="well">
+		<div class="row">
+			<div class="col-lg-6">
+		    	<center>
+				<h1>Device Status</h1>
+				<div class="table-responsive">
+					<table class="table">
+						<tr><th>Name</th><th>IP</th><th><center>Online</center></th></tr>
+						<tbody id="deviceStatus">
+							<!--Devices on the network will be added here-->
+						</tbody>
+					</table>
+				</div>
+				<button id="devicesPopup" type="button" class="modal-btn" data-toggle="modal" data-target="#moreDevices">More Devices</button></center>
+			</div>
+			<div class="col-lg-6">
+				<center><h1>Schedule</h1>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
+						<tbody id="eventList">
+							
+						</tbody>
+					</table>
+				</div>
+				<button id="fullCalendar" type="button" class="modal-btn" data-toggle="modal" data-target="#myModal">More Detail</button></center>
+			</div>
+		</div>
+	</div>
 	<div class="well" >
 		<div class="row">
 			<div class="col-lg-6" style="margin-bottom: 50px">
@@ -225,35 +254,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="well">
-		<div class="row">
-			<div class="col-lg-6">
-		    	<center>
-				<h1>Device Status</h1>
-				<div class="table-responsive">
-					<table class="table">
-						<tr><th>Name</th><th>IP</th><th><center>Online</center></th></tr>
-						<tbody id="deviceStatus">
-							<!--Devices on the network will be added here-->
-						</tbody>
-					</table>
-				</div>
-				<button id="devicesPopup" type="button" class="modal-btn" data-toggle="modal" data-target="#moreDevices">More Devices</button></center>
-			</div>
-			<div class="col-lg-6">
-				<center><h1>Schedule</h1>
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
-						<tbody id="eventList">
-							
-						</tbody>
-					</table>
-				</div>
-				<button id="fullCalendar" type="button" class="modal-btn" data-toggle="modal" data-target="#myModal">More Detail</button></center>
-			</div>
-		</div>
-	</div>
 </body>
 		
 
@@ -286,7 +286,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Schedule</h4>
+        <h4 class="modal-title">Device List</h4>
       </div>
       <div class="modal-body">
       	<center>

@@ -22,10 +22,10 @@ SerialCommunication.prototype.write = function(buttonVal) {
 
 SerialCommunication.prototype.getTemp = function() {
 	serialport.write("3\n");
-	var temp = serialport.read(8);
+	var temp = serialport.read();
 	console.log(temp.toString('utf8'));
 	temp = temp.toString('utf8');
-	temp.replace("3\n", "");
+	temp.replace("3", "");
 	return temp;
 };
 
