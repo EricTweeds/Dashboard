@@ -1,13 +1,23 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Courier New", Courier, monospace;
   min-width: 250px;
+  background-color: #6d6d6d;
 }
 
 a {
   color: #00B7FF;
 }
+.links {
+	color: #9a0007;
+}
 
+.page-title {
+	font-size: 5em;
+	color: #d32f2f;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
 .hueButton {
 	background-color: #d32f2f;
 	height: 150px;
