@@ -25,8 +25,11 @@ var serialport = new SerialPort();
   var deviceStatus = new DeviceStatus();
   console.log("refresh");
   setTimeout(function() {
-      updateDevices();
-  }, 1000*60*5);
+      if (deviceStatus != "error") {
+
+	      updateDevices();
+	}  
+}, 1000*60*5);
 })();
 
 var googleApis = require('./googleApis.js');
@@ -124,6 +127,7 @@ app.get('/hue/hueOff', function(req, res) {
 });
 
 app.get('/weather', function(req, res) {
+  console.log(req._remoteAddress);
   forecast.get([43.477, -80.537], function(err, weather) {
     if (err) throw err;
     res.send(weather);

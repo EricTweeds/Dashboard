@@ -10,13 +10,16 @@ port = 5000;
 device = {}
 
 netgear = Netgear(password, host, username, port)
+if not netgear.get_attached_devices():
+	print "error"
 
-for i in netgear.get_attached_devices():
-	device['signal'] = i.signal
-	device['ip'] = i.ip
-	device['name'] = i.name
-	device['mac'] = i.mac
-	device['type'] = i.type
-	print json.dumps(device)
+else:
+	for i in netgear.get_attached_devices():
+		device['signal'] = i.signal
+		device['ip'] = i.ip
+		device['name'] = i.name
+		device['mac'] = i.mac
+		device['type'] = i.type
+		print json.dumps(device)
 
 sys.stdout.flush()

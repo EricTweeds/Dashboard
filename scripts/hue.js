@@ -139,7 +139,7 @@ function setLights(lamp, over1, over2, callback) {
 function isValidTime() {
 	var date = new Date();
 	var hour = date.getHours();
-	if (hour < 0) {
+	if (hour < 8) {
 		return false;
 	}
 	return true;
