@@ -1,0 +1,322 @@
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src='/javascripts/controller.js'></script>
+	<script src='/javascripts/remote.js'></script>
+	<script src='/javascripts/hueController.js'></script>
+	<link rel="stylesheet" href='/stylesheets/style.css'>
+	<link rel="stylesheet" href='/stylesheets/remote.css'>
+</head>
+
+<body>
+	<div class="well">
+		<center>
+			<h1 class="page-title">Dashboard</h1>
+			<a class="links" href="https://github.com/EricTweeds/Dashboard" target="_blank">Repository</a> |  
+			<a class="links" href="https://erictweeds.github.io/" target="_blank">Personal Site</a>
+		</center>
+	</div>
+	<div class="well">
+		<center>
+			<h1>Temperature</h1>
+			<hr>
+			<div class="row">
+				<div class=col-md-6>
+					<h3>Outside: </h3><h3 id="temperature"></h3> 
+				</div>
+				<div class=col-md-6>
+					<h3>Inside: </h3><h3 id="roomTemperature"></h3> 
+				</div>
+			</div>
+			
+		</center>
+	</div>
+	<div class="well" id="hueController">
+	</div>
+	<div class="well">
+		<div class="row">
+			<div class="col-lg-6">
+		    	<center>
+				<h1>Device Status</h1>
+				<div class="table-responsive">
+					<table class="table">
+						<tr><th>Name</th><th>IP</th><th><center>Online</center></th></tr>
+						<tbody id="deviceStatus">
+							<!--Devices on the network will be added here-->
+						</tbody>
+					</table>
+				</div>
+				<button id="devicesPopup" type="button" class="modal-btn" data-toggle="modal" data-target="#moreDevices">More Devices</button></center>
+			</div>
+			<div class="col-lg-6">
+				<center><h1>Schedule</h1>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr><th>Event</th><th>Date</th><th>Start</th><th>End</th><th>Location</th></tr>
+						<tbody id="eventList">
+							
+						</tbody>
+					</table>
+				</div>
+				<button id="fullCalendar" type="button" class="modal-btn" data-toggle="modal" data-target="#myModal">More Detail</button></center>
+			</div>
+		</div>
+	</div>
+	<div class="well" >
+		<div class="row">
+			<center>
+				<h1>Remote Controls</h1>
+				<span>Uses arduino with an IR LED to send signals to my TV or IPTV box</span>
+			</center>
+			<hr>
+			<div class="col-lg-6" style="margin-bottom: 50px">
+				<center>
+				<div style="min-width: 425px; max-width: 425px;">
+					<div class="remote-control">
+						<div class="row" style="margin-top: 5px">
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color:white;">INPUT</h3>
+									<button class="remote-round-tv" value="input"><i class="material-icons" style="font-size: 24px">input</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<h1 class="remote-title">TV</h1>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color:white;">POWER</h3>
+									<button class="remote-round-tv" value="power" style="background: #d32f2f;"><i class="material-icons" style="font-size: 50px">power_settings_new</i></button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 25px;">
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="one">1</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="two">2</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="three">3</button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="four">4</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="five">5</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="six">6</button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="seven">7</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="eight">8</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="nine">9</button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="zero">0</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+							</div>
+						</div>
+						<hr style="width: 90%">
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<h2 style="color:white;">VOL</h2>
+									<button class="remote-round-tv" value="volup">+</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color: white;">MUTE</h3>
+									<button class="remote-square-tv" value="mute"><i class="material-icons" style="font-size: 24px">volume_mute</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+								<h2 style="color:white;">CH</h2>
+									<button class="remote-round-tv" value="chup">+</button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-round-tv" value="voldown">-</button>
+								</center>
+							</div>
+							<div class="col-sm-4" style="margin-top: -40px">
+								<center>
+									<h3 style="color: white;">MENU</h3>
+									<button class="remote-square-tv" value="menu"><i class="material-icons" style="font-size: 24px">menu</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-round-tv" value="chdown">-</button>
+								</center>
+							</div>
+						</div>
+						<hr style="width: 90%">
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color: white">INFO</h3>
+									<button class="remote-round-sm-tv" value="info"><i class="material-icons" style="font-size: 24px">info_outline</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="up" style="margin-top: 50px"><i class="material-icons" style="font-size: 24px">arrow_upward</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color: white">GUIDE</h3>
+									<button class="remote-round-sm-tv" value="guide"><i class="material-icons" style="font-size: 24px">apps</i></button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px;">
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="left"><i class="material-icons" style="font-size: 24px">arrow_back</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="enter" style="font-size: 12px">ENTER</button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="right"><i class="material-icons" style="font-size: 24px">arrow_forward</i></button>
+								</center>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 12px; margin-bottom: 25px">
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color: white">RECALL</h3>
+									<button class="remote-round-sm-tv" value="recall"><i class="material-icons" style="font-size: 24px">undo</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<button class="remote-square-tv" value="down"><i class="material-icons" style="font-size: 24px">arrow_downward</i></button>
+								</center>
+							</div>
+							<div class="col-sm-4">
+								<center>
+									<h3 style="color: white">EXIT</h3>
+									<button class="remote-round-sm-tv" value="exit"><i class="material-icons" style="font-size: 24px">exit_to_app</i></button>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				</center>
+			</div>
+			<div class="col-lg-6">
+				<center>
+				<div id="boxRemote" style="min-width: 425px; max-width: 425px;">
+				</div>
+				</center>
+			</div>
+		</div>
+	</div>
+</body>
+		
+
+<!--Calendar Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Schedule</h4>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=erictweeds%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FToronto" style="border-width:0;" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--Connected Devices Modal-->
+<div id="moreDevices" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Device List</h4>
+      </div>
+      <div class="modal-body">
+      	<center>
+			<h1>Connected Devices</h1>
+			<p>List of devices currently connected to my router</p>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<tr><th>Name</th><th>IP</th><th>Mac Address</th><th>Type</th></tr>
+					<tbody id="connectedDevices">
+						<!--Devices on the network will be added here-->
+					</tbody>
+				</table>
+			</div>
+			<button id="deviceList" class="refreshBtn" align="right">Refresh</button>
+		</center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

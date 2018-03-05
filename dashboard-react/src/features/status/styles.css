@@ -1,0 +1,29 @@
+.status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #0277bd;
+  color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border: 2px solid #004c8c;
+}
+
+.statusTitle {
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px dashed #fff;
+}
+
+.clockContainer {
+  text-align: center;
+  font-size: 1rem;
+  margin: auto;
+  padding: 0.25rem;
+  width: 50%;
+}

@@ -1,0 +1,4 @@
+desktop-9t0t8t4.lan (192.168.86.237) at 90:61:ae:94:47:2e [ether] on wlp2s0
+google-home.lan (192.168.86.31) at <incomplete> on wlp2s0
+? (192.168.86.239) at ac:37:43:52:a1:3b [ether] on wlp2s0
+testwifi.here (192.168.86.1) at 70:3a:cb:32:dd:8e [ether] on wlp2s0
