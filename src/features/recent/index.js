@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import MaterialIcon from 'material-icons-react';
 import Time from 'react-time-format';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loadRecentRequest } from '../../actions';
 import '../../App.css';
 import './styles.css';
 
+export class Recent extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default class Recent extends Component {
+  componentWillMount() {
+    const { load } = this.props;
+    load();
+  }
+
   render() {
-    const data = [
-      {
-        name: 'Lights',
-        icon: 'lightbulb_outline',
-        lastAccessed: 1520272350
-      },
-      {
-        name: 'tunes',
-        icon: 'music_note',
-        lastAccessed: 1520272350
-      },
-      {
-        name: 'network',
-        icon: 'network_check',
-        lastAccessed: 1520272350
-      }
-    ];
+    const { data } = this.props;
     return (
       <div className="root">
         <div className="title">Recent</div>
@@ -44,3 +39,13 @@ export default class Recent extends Component {
     );
   }
 }
+
+export const mapDispatchToProps = dispatch => ({
+  load: bindActionCreators(loadRecentRequest, dispatch)
+});
+
+export const mapStateToProps = state => ({
+  data: state.recent.data
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recent);
