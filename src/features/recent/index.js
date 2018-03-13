@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MaterialIcon from 'material-icons-react';
 import Time from 'react-time-format';
+import '../../App.css';
 import './styles.css';
 
 
@@ -24,8 +25,8 @@ export default class Recent extends Component {
       }
     ];
     return (
-      <div className="recent">
-        <div className="recentTitle">Recent</div>
+      <div className="root">
+        <div className="title">Recent</div>
         <div className="containers">
         {data.map(activity => (
           <div className="container">
