@@ -26,3 +26,32 @@ export const loadRecentError = err => ({
   type: 'LOAD_RECENT_ERROR',
   err
 });
+
+export const loadLightsRequest = () => ({
+  type: 'LOAD_LIGHTS_REQUEST'
+});
+
+export const loadLightsSuccess = data => ({
+  type: 'LOAD_LIGHTS_SUCCESS',
+  data
+});
+
+export const loadLightsError = err => ({
+  type: 'LOAD_LIGHTS_ERROR',
+  err
+});
+
+export const changeLightsRequest = lightType => ({
+  type: 'CHANGE_LIGHTS_REQUEST',
+  lightType
+});
+
+export const changeLightsSuccess = data => ({
+  type: 'CHANGE_LIGHTS_SUCCESS',
+  data
+});
+
+export const changeLightsError = err => ({
+  type: 'CHANGE_LIGHTS_ERROR',
+  err
+});

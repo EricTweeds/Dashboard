@@ -6,10 +6,6 @@ import '../../App.css';
 import './styles.css';
 
 export class Weather extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     const { load } = this.props;
     load('Toronto');

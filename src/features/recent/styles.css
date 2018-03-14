@@ -5,11 +5,6 @@
   flex-wrap: wrap;
 }
 
-.container:hover {
-  border: 2px solid #004c8c;
-  cursor: pointer;
-}
-
 .name {
   text-transform: capitalize;
   text-align: center;

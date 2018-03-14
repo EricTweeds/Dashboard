@@ -41,3 +41,9 @@
   margin-bottom: 1.5rem;
   border-bottom: 1px dashed #fff;
 }
+
+.clickable:hover {
+  border: 2px solid #004c8c;
+  cursor: pointer;
+}
+

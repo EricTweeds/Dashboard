@@ -22,9 +22,19 @@ export function recent(state = defaultState, action) {
   }
 };
 
+export function lights(state = defaultState, action) {
+  switch (action.type) {
+    case 'LOAD_LIGHTS_SUCCESS':
+      return { data: action.data }
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   weather,
-  recent
+  recent,
+  lights
 });
 
 export default rootReducer;

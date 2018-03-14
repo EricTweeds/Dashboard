@@ -37,3 +37,30 @@ export const recentAPI = () => {
     }
   ];
 }
+
+export const lightsDataAPI = () => {
+  return [
+    {
+      type: 'Type 1'
+    },
+    {
+      type: 'Type 2'
+    },
+    {
+      type: 'Type 3'
+    },
+    {
+      type: 'Type 4'
+    },
+    {
+      type: 'Type 5'
+    },
+    {
+      type: 'Type 6'
+    }
+  ]
+}
+
+export const lightsAPI = lightType => {
+  //Will be a PUT
+}

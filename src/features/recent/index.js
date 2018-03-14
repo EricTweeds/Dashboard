@@ -8,10 +8,6 @@ import '../../App.css';
 import './styles.css';
 
 export class Recent extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     const { load } = this.props;
     load();
@@ -24,7 +20,7 @@ export class Recent extends Component {
         <div className="title">Recent</div>
         <div className="containers">
         {data.map(activity => (
-          <div className="container">
+          <div className="container clickable">
             <div className="name">{activity.name}</div>
             <div className="item">
               <MaterialIcon icon={activity.icon} size='large' invert />

@@ -4,11 +4,12 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
+import sagas from './sagas';
 import Status from './features/status/index.js';
 import Recent from './features/recent/index.js';
 import Weather from './features/weather/index.js';
 import Header from './components/header/index.js';
-import { loadWeatherFlow, loadRecent } from './sagas';
+import Lights from './features/lights/index';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -19,8 +20,9 @@ const store = createStore(
     )
 );
 
-sagaMiddleware.run(loadWeatherFlow);
-sagaMiddleware.run(loadRecent);
+sagas.forEach(saga => {
+  sagaMiddleware.run(saga);
+});
 
 class App extends Component {
   render() {
@@ -34,6 +36,7 @@ class App extends Component {
           <Status />
           <Weather />
           <Recent />
+          <Lights />
         </div>
       </Provider>
     );
