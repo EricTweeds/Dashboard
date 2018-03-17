@@ -31,10 +31,20 @@ export function lights(state = defaultState, action) {
   }
 };
 
+export function whosOnline(state = defaultState, action) {
+  switch (action.type) {
+    case 'LOAD_WHOSONLINE_SUCCESS':
+      return { data: action.data }
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   weather,
   recent,
-  lights
+  lights,
+  whosOnline
 });
 
 export default rootReducer;

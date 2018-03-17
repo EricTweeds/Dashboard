@@ -24,13 +24,15 @@
 .container {
   width: 20rem;
   padding: 1rem;
-  border: 2px solid #fff;
+  border: 2px solid #999;
   display: flex;
-  background-color: #58a5f0;
+  color: #000;
+  background-color: #fff;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   margin: 1rem;
+  border-radius: 1rem;
 }
 
 .containerTitle {
@@ -39,7 +41,7 @@
   padding: 0.5rem;
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px dashed #fff;
+  border-bottom: 1px dashed #999;
 }
 
 .clickable:hover {

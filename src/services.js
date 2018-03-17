@@ -64,3 +64,33 @@ export const lightsDataAPI = () => {
 export const lightsAPI = lightType => {
   //Will be a PUT
 }
+
+export const whosOnlineAPI = () => {
+  return [
+    {
+      icon: 'phone_android',
+      name: 'Eric`s Phone',
+      ip: '192.168.1.4',
+      online: true
+    },
+    {
+      icon: 'phone_android',
+      name: 'Nick`s Phone',
+      ip: '192.168.1.5',
+      online: false
+    },
+    {
+      icon: 'computer',
+      name: 'Eric`s Computer',
+      ip: '192.168.1.3',
+      online: true
+    },
+    {
+      icon: 'videogame_asset',
+      name: 'Xbox One',
+      ip: '192.168.1.7',
+      online: false
+    }
+  ]
+
+}

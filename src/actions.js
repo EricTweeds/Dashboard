@@ -55,3 +55,17 @@ export const changeLightsError = err => ({
   type: 'CHANGE_LIGHTS_ERROR',
   err
 });
+
+export const loadWhosOnlineRequest = () => ({
+  type: 'LOAD_WHOSONLINE_REQUEST'
+});
+
+export const loadWhosOnlineSuccess = data => ({
+  type: 'LOAD_WHOSONLINE_SUCCESS',
+  data
+});
+
+export const loadWhosOnlineError = err => ({
+  type: 'LOAD_WHOSONLINE_ERROR',
+  err
+});

@@ -10,6 +10,7 @@ import Recent from './features/recent/index.js';
 import Weather from './features/weather/index.js';
 import Header from './components/header/index.js';
 import Lights from './features/lights/index';
+import WhosOnline from './features/whosOnline/index';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -34,6 +35,7 @@ class App extends Component {
         <div>
           <Header {...data}/>
           <Status />
+          <WhosOnline />
           <Weather />
           <Recent />
           <Lights />

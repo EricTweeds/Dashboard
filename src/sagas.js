@@ -7,13 +7,16 @@ import {
   changeLightsSuccess,
   changeLightsError,
   loadLightsSuccess,
-  loadLightsError
+  loadLightsError,
+  loadWhosOnlineSuccess,
+  loadWhosOnlineError
 } from './actions';
 import { 
   weatherAPI,
   recentAPI,
   lightsAPI,
-  lightsDataAPI
+  lightsDataAPI,
+  whosOnlineAPI
 } from './services';
 
 export function* loadWeather() {
@@ -82,4 +85,20 @@ export function* changeLightsFlow() {
   }
 }
 
-export default [loadRecentFlow, loadWeatherFlow, loadLightsFlow, changeLightsFlow];
+export function* loadWhosOnline() {
+  try {
+    const response = yield call(whosOnlineAPI);
+    yield put(loadWhosOnlineSuccess(response));
+  } catch (error) {
+    yield put (loadWhosOnlineError(error));
+  }
+}
+
+export function* loadWhosOnlineFlow() {
+  while (true) {
+    yield take('LOAD_WHOSONLINE_REQUEST');
+    yield fork(loadWhosOnline);
+  }
+}
+
+export default [loadRecentFlow, loadWhosOnlineFlow, loadWeatherFlow, loadLightsFlow, changeLightsFlow];

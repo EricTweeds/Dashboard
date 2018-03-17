@@ -23,7 +23,7 @@ export class Recent extends Component {
           <div className="container clickable">
             <div className="name">{activity.name}</div>
             <div className="item">
-              <MaterialIcon icon={activity.icon} size='large' invert />
+              <MaterialIcon icon={activity.icon} size='large' />
             </div>
             <div className="item">
               <Time value={activity.lastAccessed * 1000} format="YY-MM-DD"/>
