@@ -6,7 +6,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import sagas from './sagas';
 import Status from './features/status/index.js';
-import Recent from './features/recent/index.js';
 import Weather from './features/weather/index.js';
 import Header from './components/header/index.js';
 import Lights from './features/lights/index';
@@ -37,7 +36,6 @@ class App extends Component {
           <Status />
           <WhosOnline />
           <Weather />
-          <Recent />
           <Lights />
         </div>
       </Provider>

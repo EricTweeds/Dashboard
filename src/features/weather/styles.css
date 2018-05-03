@@ -8,11 +8,18 @@
 .temperature {
   text-align: center;
   font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.weatherDesciption {
+  text-align: center;
+  font-size: 1rem;
 }
 
 .tempContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem;
 }

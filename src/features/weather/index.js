@@ -21,12 +21,10 @@ export class Weather extends Component {
             <div className="container" key={type.name}>
               <div className="containerTitle">{type.name}</div>
               <div className="tempContainer">
-                <div className="temperature">Temperature:</div>
                 <div className="temperature">{type.temp}&deg;C</div>
               </div>
               <div className="tempContainer">
-                <div className="temperature">Conditions:</div>
-                <div className="temperature">{type.state}</div>
+                <div className="weatherDesciption">{type.state}</div>
               </div>
             </div>
           ))}
