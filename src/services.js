@@ -1,3 +1,6 @@
+import request from 'request';
+import config from './config.json';
+
 export const weatherAPI = location => {
   return [
     {
@@ -39,30 +42,22 @@ export const recentAPI = () => {
 }
 
 export const lightsDataAPI = () => {
-  return [
-    {
-      type: 'Type 1'
-    },
-    {
-      type: 'Type 2'
-    },
-    {
-      type: 'Type 3'
-    },
-    {
-      type: 'Type 4'
-    },
-    {
-      type: 'Type 5'
-    },
-    {
-      type: 'Type 6'
-    }
-  ]
+  return fetch(`${config.api.url}/lightTypes`, {}).then((response) => response.json())
 }
 
 export const lightsAPI = lightType => {
-  //Will be a PUT
+  request({
+    method: 'GET',
+    uri: `${config.api.url}/lights`,
+    headers: {
+      type: lightType
+    }
+  },
+  (error, response, body) => {
+    if (error) {
+      console.log(error);
+    }
+  })
 }
 
 export const whosOnlineAPI = () => {

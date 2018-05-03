@@ -30,7 +30,7 @@ export class WhosOnline extends Component {
             <div className="device tableHeader">Status</div>
           </div>
           {data.map(device => (
-            <div className="deviceRow">
+            <div className="deviceRow" key={device.name}>
               <div className="device">
                 <MaterialIcon icon={device.icon} size='medium' />
               </div>

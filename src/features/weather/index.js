@@ -18,7 +18,7 @@ export class Weather extends Component {
         <div className="title">Weather</div>
         <div className="weatherCategories">
           {data.map(type => (
-            <div className="container">
+            <div className="container" key={type.name}>
               <div className="containerTitle">{type.name}</div>
               <div className="tempContainer">
                 <div className="temperature">Temperature:</div>
