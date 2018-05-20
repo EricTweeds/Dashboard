@@ -60,9 +60,10 @@ export const loadWhosOnlineRequest = () => ({
   type: 'LOAD_WHOSONLINE_REQUEST'
 });
 
-export const loadWhosOnlineSuccess = data => ({
+export const loadWhosOnlineSuccess = (data, otherDevices) => ({
   type: 'LOAD_WHOSONLINE_SUCCESS',
-  data
+  data,
+  otherDevices
 });
 
 export const loadWhosOnlineError = err => ({

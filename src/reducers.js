@@ -34,7 +34,10 @@ export function lights(state = defaultState, action) {
 export function whosOnline(state = defaultState, action) {
   switch (action.type) {
     case 'LOAD_WHOSONLINE_SUCCESS':
-      return { data: action.data }
+      return { 
+        data: action.data,
+        otherDevices: action.otherDevices
+        }
     default:
       return state;
   }

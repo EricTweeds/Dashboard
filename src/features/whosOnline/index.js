@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import MaterialIcon from 'material-icons-react';
 import { connect } from 'react-redux';
 import { loadWhosOnlineRequest } from '../../actions';
+import DeviceModal from './Modal';
 import '../../App.css';
 import './styles.css';
 
@@ -13,7 +14,7 @@ export class WhosOnline extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, otherDevices } = this.props;
 
     data.sort(a => {
       return !a.online
@@ -42,6 +43,9 @@ export class WhosOnline extends Component {
               }
             </div>
           ))}
+          <div className="DeviceModal">
+            <DeviceModal data={otherDevices || []} />
+          </div>
         </div>
       </div>
     )
@@ -49,7 +53,8 @@ export class WhosOnline extends Component {
 }
 
 export const mapStateToProps = state => ({
-  data: state.whosOnline.data
+  data: state.whosOnline.data,
+  otherDevices: state.whosOnline.otherDevices
 });
 
 export const mapDispatchToProps = dispatch => ({
