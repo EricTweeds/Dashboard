@@ -88,7 +88,7 @@ export function* changeLightsFlow() {
 export function* loadWhosOnline() {
   try {
     const response = yield call(whosOnlineAPI);
-    yield put(loadWhosOnlineSuccess(response));
+    yield put(loadWhosOnlineSuccess(response.data, response.otherDevices));
   } catch (error) {
     yield put (loadWhosOnlineError(error));
   }
