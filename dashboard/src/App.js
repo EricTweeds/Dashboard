@@ -34,7 +34,6 @@ class App extends Component {
         <div>
           <Header {...data}/>
           <Status />
-          <WhosOnline />
           <Weather />
           <Lights />
         </div>
