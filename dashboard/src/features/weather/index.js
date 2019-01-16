@@ -17,11 +17,14 @@ export class Weather extends Component {
       <div className="root">
         <div className="title">Weather</div>
         <div className="weatherCategories">
-          {data.map(type => (
+          {Object.values(data).map(type => (
             <div className="container" key={type.name}>
               <div className="containerTitle">{type.name}</div>
               <div className="tempContainer">
-                <div className="temperature">{type.temp}&deg;C</div>
+                <div className="temperature">Temp: {type.temp}&deg;C</div>
+              </div>
+              <div className="tempContainer">
+                <div className="temperature">POP: {type.pop}%</div>
               </div>
               <div className="tempContainer">
                 <div className="weatherDesciption">{type.state}</div>

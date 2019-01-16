@@ -27,7 +27,7 @@ export class Lights extends Component {
       <div className="root">
         <div className="title">Light Controls</div>
         <div className="lightContainers">
-          {data && data.map(option => (
+          {data && Object.values(data).map(option => (
             <div className="container clickable" onClick={() => this.handleClick(option.type)} key={option.type}>
               <div className="typeLabel">{option.displayName}</div>
             </div>

@@ -43,11 +43,23 @@ export function whosOnline(state = defaultState, action) {
   }
 };
 
+export function indexStatus(state = {active: false}, action) {
+  switch (action.type) {
+    case 'LOAD_INDEX_STATUS':
+      return {
+        active: action.active && action.active === "OK"
+      }
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   weather,
   recent,
   lights,
-  whosOnline
+  whosOnline,
+  indexStatus
 });
 
 export default rootReducer;

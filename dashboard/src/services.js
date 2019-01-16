@@ -31,7 +31,7 @@ export const lightsDataAPI = () => {
 
 export const lightsAPI = lightType => {
   request({
-    method: 'GET',
+    method: 'PUT',
     uri: `${config.api.url}/lights`,
     headers: {
       type: lightType
@@ -46,4 +46,8 @@ export const lightsAPI = lightType => {
 
 export const whosOnlineAPI = () => {
   return fetch(`${config.api.url}/whosOnline`, {}).then((response) => response.json())
+}
+
+export const statusAPI = () => {
+  return fetch(`${config.api.url}/`, {}).then((response) => response.statusText)
 }

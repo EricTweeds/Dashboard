@@ -70,3 +70,12 @@ export const loadWhosOnlineError = err => ({
   type: 'LOAD_WHOSONLINE_ERROR',
   err
 });
+
+export const loadIndexStatus = () => ({
+  type: 'LOAD_INDEX'
+});
+
+export const loadIndexStatusReceived = (active) => ({
+  type: 'LOAD_INDEX_STATUS',
+  active
+});
