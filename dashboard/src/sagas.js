@@ -10,7 +10,9 @@ import {
   loadLightsError,
   loadWhosOnlineSuccess,
   loadWhosOnlineError,
-  loadIndexStatusReceived
+  loadIndexStatusReceived,
+  loadLocationsSuccess,
+  loadLocationsError
 } from './actions';
 import { 
   weatherAPI,
@@ -18,7 +20,8 @@ import {
   lightsAPI,
   lightsDataAPI,
   whosOnlineAPI,
-  statusAPI
+  statusAPI,
+  locationsAPI
 } from './services';
 
 export function* loadStatus() {
@@ -119,4 +122,20 @@ export function* loadWhosOnlineFlow() {
   }
 }
 
-export default [loadRecentFlow, loadWhosOnlineFlow, loadWeatherFlow, loadLightsFlow, changeLightsFlow, loadStatusFlow];
+export function* loadLocations() {
+  try {
+    const response = yield call(locationsAPI);
+    yield put(loadLocationsSuccess(response));
+  } catch (error) {
+    yield put (loadLocationsError(error));
+  }
+}
+
+export function* loadLocationsFlow() {
+  while (true) {
+    yield take('LOAD_LOCATIONS_REQUEST');
+    yield fork(loadLocations);
+  }
+}
+
+export default [loadRecentFlow, loadWhosOnlineFlow, loadWeatherFlow, loadLightsFlow, changeLightsFlow, loadStatusFlow, loadLocationsFlow];

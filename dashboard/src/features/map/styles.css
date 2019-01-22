@@ -1,0 +1,12 @@
+.mapContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+.city {
+    cursor: pointer;
+}
+
+.current {
+    color: red;
+}

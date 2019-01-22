@@ -71,6 +71,20 @@ export const loadWhosOnlineError = err => ({
   err
 });
 
+export const loadLocationsRequest = () => ({
+  type: 'LOAD_LOCATIONS_REQUEST'
+});
+
+export const loadLocationsSuccess = (data) => ({
+  type: 'LOAD_LOCATIONS_SUCCESS',
+  data
+});
+
+export const loadLocationsError = err => ({
+  type: 'LOAD_LOCATIONS_ERROR',
+  err
+});
+
 export const loadIndexStatus = () => ({
   type: 'LOAD_INDEX'
 });

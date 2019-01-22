@@ -9,7 +9,7 @@ import Status from './features/status/index.js';
 import Weather from './features/weather/index.js';
 import Header from './components/header/index.js';
 import Lights from './features/lights/index';
-import WhosOnline from './features/whosOnline/index';
+import Map from './features/map/index';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -27,13 +27,14 @@ sagas.forEach(saga => {
 class App extends Component {
   render() {
     const data = {
-      user: 'Eric'
+      user: ''
     };
     return (
       <Provider store={store}>
         <div>
           <Header {...data}/>
           <Status />
+          <Map />
           <Weather />
           <Lights />
         </div>

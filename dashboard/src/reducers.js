@@ -43,6 +43,17 @@ export function whosOnline(state = defaultState, action) {
   }
 };
 
+export function locations(state = {}, action) {
+  switch (action.type) {
+    case 'LOAD_LOCATIONS_SUCCESS':
+      return { 
+        data: action.data
+        }
+    default:
+      return state;
+  }
+};
+
 export function indexStatus(state = {active: false}, action) {
   switch (action.type) {
     case 'LOAD_INDEX_STATUS':
@@ -59,6 +70,7 @@ const rootReducer = combineReducers({
   recent,
   lights,
   whosOnline,
+  locations,
   indexStatus
 });
 

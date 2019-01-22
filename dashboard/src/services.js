@@ -51,3 +51,7 @@ export const whosOnlineAPI = () => {
 export const statusAPI = () => {
   return fetch(`${config.api.url}/`, {}).then((response) => response.statusText)
 }
+
+export const locationsAPI = () => {
+  return fetch(`${config.api.url}/locations`, {}).then((response) => response.json())
+}
